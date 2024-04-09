@@ -1,0 +1,59 @@
+<!--data_selection.html
+^$\n for removing blank lines-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ozim CR</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .container {
+            display: flex;
+        }
+        .left-column {
+            flex: 1;
+        }
+        .right-column {
+            flex: 2;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-column">
+            <h2>Data selection</h2>
+            <input type="button" class="section-btn" data-section="#section1" value="Data selection">
+            <h2>Data info</h2>
+            <input type="button" class="section-btn" data-section="#section2" value="Data info">
+            <h2>Features binning</h2>
+            <input type="button" class="section-btn" data-section="#section3" value="Features binning">
+            <h2>Model evaluation</h2>
+            <input type="button" class="section-btn" data-section="#section4" value="Model evaluation">
+            <h2>Predictions</h2>
+            <input type="button" class="section-btn" data-section="#section5" value="Predictions">
+        </div>
+        
+        <div id="section1" class="content-section">
+            <form id="upload-form" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv, .xlsx">
+                <input type="button" id="upload-btn" value="Upload">
+            </form>
+            <div id="column-selector" style="display: none;">
+                <label for="index-column-list">Choose Index Column:</label>
+                <select id="index-column-list"></select>
+                
+            </div>
+            <div id="target-selector" style="display: none;">
+                <label for="target-column-list">Choose Target Column:</label>
+                <select id="target-column-list"></select>
+                <input type="button" id="set-index-target-btn" value="Set Index and Target">
+            </div>
+            <div id="message-box" style="display: none;"></div>
+        </div>
+    </div>
+<script src="./static/scripts/data_selection.js"></script>
+</body>
+</html>
